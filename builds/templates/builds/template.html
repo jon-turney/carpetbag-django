@@ -1,0 +1,31 @@
+{% if rows %}
+    <table style="width:100%">
+    <tr>
+      <th>id</th>
+      <th>source package</th>
+      <th>status</th>
+      <th>log</th>
+      <th>VM log</th>
+      <th>build</th>
+      <th>verify</th>
+      <th>start time</th>
+      <th>end time</th>
+    </tr>
+    {% for r in rows %}
+        <tr>
+          <td>{{ r.id }}</a></td>
+          <td>{{ r.srcpkg }}</td>
+          <td>{{ r.status }}</td>
+          <td><a href="/builds/log/{{ r.log }}">{{ r.log }}</a></td>
+          <td><a href="/builds/log/{{ r.buildlog }}">{{ r.buildlog }}</a></td>
+          <td>{{ r.built|yesno:"succeeded,failed" }}</td>
+          <td>{{ r.valid|yesno:"succeeded,failed" }}</td>
+          <td>{{ r.start_timestamp|date:"c" }}</td>
+          <td>{{ r.end_timestamp|date:"c" }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No builds are available.</p>
+{% endif %}
+
