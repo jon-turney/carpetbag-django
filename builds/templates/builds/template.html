@@ -1,5 +1,9 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'builds/style.css' %}" />
+
 {% if rows %}
-    <table style="width:100%">
+    <table class="grid">
     <tr>
       <th>id</th>
       <th>source package</th>
@@ -16,8 +20,8 @@
           <td>{{ r.id }}</a></td>
           <td>{{ r.srcpkg }}</td>
           <td>{{ r.status }}</td>
-          <td><a href="/builds/log/{{ r.log }}">{{ r.log }}</a></td>
-          <td><a href="/builds/log/{{ r.buildlog }}">{{ r.buildlog }}</a></td>
+          <td><a href="/builds/log/{{ r.log }}">{{ r.log|cut:"/var/log/carpetbag/" }}</a></td>
+          <td><a href="/builds/log/{{ r.buildlog }}">{{ r.buildlog|cut:"/var/log/carpetbag/" }}</a></td>
           <td>{{ r.built|yesno:"succeeded,failed" }}</td>
           <td>{{ r.valid|yesno:"succeeded,failed" }}</td>
           <td>{{ r.start_timestamp|date:"c" }}</td>
@@ -29,3 +33,18 @@
     <p>No builds are available.</p>
 {% endif %}
 
+<div class="pagination">
+    <span class="step-links">
+        {% if rows.has_previous %}
+            <a href="?page={{ rows.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            page {{ rows.number }} of {{ rows.paginator.num_pages }}
+        </span>
+
+        {% if rows.has_next %}
+            <a href="?page={{ rows.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
