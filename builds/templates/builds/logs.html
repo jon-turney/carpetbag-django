@@ -1,0 +1,13 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'builds/style.css' %}" />
+
+<style type="text/css">
+ {{ style }}
+</style>
+
+<div class="log body_foreground body_background">
+  <pre class="ansi2html-content">{{ content }}</pre>
+</div>
+
+<a href="/builds/raw/{{ log }}">raw log</a>

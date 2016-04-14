@@ -11,10 +11,10 @@ class Jobs(models.Model):
     status = models.TextField(blank=True, null=True)
     log = models.TextField(blank=True, null=True)
     buildlog = models.TextField(blank=True, null=True)
-    built = models.BooleanField(blank=False, null=False)
-    valid = models.BooleanField(blank=False, null=False)
-    start_timestamp = UnixDateTimeField(blank=True, null=False)
-    end_timestamp = UnixDateTimeField(blank=True, null=False)
+    built = models.NullBooleanField(blank=False)
+    valid = models.NullBooleanField(blank=False)
+    start_timestamp = UnixDateTimeField(blank=True, null=True)
+    end_timestamp = UnixDateTimeField(blank=True, null=True)
 
     class Meta:
         managed = False

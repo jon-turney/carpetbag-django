@@ -1,7 +1,8 @@
 
 table.grid {
-    width: 100%;
-    align: center;
+    width: 95%;
+    margin-left:auto;
+    margin-right:auto;
     border: 1px solid black;
     border-collapse: collapse;
 }
@@ -16,7 +17,19 @@ table.grid th {
 }
 
 table.grid tr:nth-child(even) {
-    background-color: #f2f2f2
+    background-color: #f2f2f2;
+}
+
+table.grid tr.yes {
+    color: green;
+}
+
+table.grid tr.no {
+    color: red;
+}
+
+table.grid tr.maybe {
+    color: orange;
 }
 
 table.grid td {
@@ -27,4 +40,11 @@ table.grid td {
 
 .pagination {
     text-align: center;
+}
+
+.log {
+    width: 95%;
+    margin-left:auto;
+    margin-right:auto;
+    overflow: auto;
 }

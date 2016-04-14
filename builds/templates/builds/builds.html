@@ -16,14 +16,14 @@
       <th>end time</th>
     </tr>
     {% for r in rows %}
-        <tr>
+        <tr class="{{ r.built|yesno }}">
           <td>{{ r.id }}</a></td>
           <td>{{ r.srcpkg }}</td>
           <td>{{ r.status }}</td>
           <td><a href="/builds/log/{{ r.log }}">{{ r.log|cut:"/var/log/carpetbag/" }}</a></td>
           <td><a href="/builds/log/{{ r.buildlog }}">{{ r.buildlog|cut:"/var/log/carpetbag/" }}</a></td>
-          <td>{{ r.built|yesno:"succeeded,failed" }}</td>
-          <td>{{ r.valid|yesno:"succeeded,failed" }}</td>
+          <td>{{ r.built|yesno:"succeeded,failed," }}</td>
+          <td>{{ r.valid|yesno:"succeeded,failed," }}</td>
           <td>{{ r.start_timestamp|date:"c" }}</td>
           <td>{{ r.end_timestamp|date:"c" }}</td>
         </tr>
