@@ -21,18 +21,41 @@ table.grid tr:nth-child(even) {
 }
 
 table.grid tr.yes {
-    color: green;
 }
 
 table.grid tr.no {
-    color: red;
 }
 
 table.grid tr.maybe {
-    color: orange;
 }
 
 table.grid td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 0.3em;
+}
+
+table.grid td.yes {
+    background-color: green;
+}
+
+table.grid td.no {
+    background-color: red;
+}
+
+table.details {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table.details th {
+    text-align: left;
+    background-color: black;
+    color: white;
+    padding: 0.3em;
+}
+
+table.details td {
     border: 1px solid black;
     border-collapse: collapse;
     padding: 0.3em;
